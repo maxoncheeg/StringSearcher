@@ -3,10 +3,9 @@
 
 using SubstringSearcher.Extensions;
 
-string text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-//text = text[..^3];
-string search = "";//"ipsum dolor";
-int multiplier = 500;
+string text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //100
+string search = "aaaaaaaaaa"; //10
+int multiplier = 1000;
 
 //Console.WriteLine($"TEXT: {text}");
 //Console.WriteLine($"SEARCH STRING: {search}");
@@ -16,9 +15,11 @@ IList<int> result = new List<int>();
 IList<int> result1 = new List<int>();
 
 text = text.Multiply(multiplier);
+search = search.Multiply(multiplier);
 
-search = text + "h";
-text = text + "haha";
+
+
+
 
 watch.Start();
 result = text.Find(search);
@@ -30,7 +31,11 @@ watch.Start();
 result1 = text.FindSlow(search);
 watch.Stop();
 
-if(result.Count != result1.Count)Console.WriteLine("FALSE FALSE FALSE");
+if(result.Count != result1.Count)
+{
+    Console.WriteLine("FALSE FALSE FALSE");
+    return;
+}
 
 for (int i = 0; i < result.Count; i++)
 {

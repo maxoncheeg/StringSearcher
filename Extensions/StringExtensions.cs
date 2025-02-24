@@ -21,8 +21,10 @@ public static class StringExtensions
     {
         List<int> result = [];
         
-        for (int i = 0; i < @this.Length; i++)
+        //aa a aaaaa
+        for (int i = 0; i < @this.Length - search.Length + 1; i++)
         {
+            //a
             for (int j = 0; j < search.Length; j++)
             {
                 if (i + j >= @this.Length) break;
